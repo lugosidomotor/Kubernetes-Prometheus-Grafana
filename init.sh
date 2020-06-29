@@ -12,6 +12,8 @@ sudo apt-get install conntrack -y
 
 curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > get_helm.sh
 chmod 700 get_helm.sh
+sudo ./get_helm.sh
+sudo helm init
 
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.18.0/minikube-linux-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/
 
