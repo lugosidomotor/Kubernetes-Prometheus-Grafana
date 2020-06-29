@@ -8,6 +8,7 @@ sudo apt-get update -y
 sudo apt-get upgrade -y
 sudo apt-get install -y docker.io
 sudo apt-get install socat -y
+sudo apt-get install conntrack -y
 
 curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > get_helm.sh
 chmod 700 get_helm.sh
