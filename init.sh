@@ -24,8 +24,11 @@ chmod 700 get_helm.sh
 sudo ./get_helm.sh
 sudo helm init
 
+sudo minikube addons enable ingress
 
 sudo minikube start --vm-driver=none
 sudo helm install stable/prometheus
+
+
 
 #sudo minikube start –vm-driver=none –extra-config=kubeadm.ignore-preflight-errors=NumCPU –force –cpus 1
