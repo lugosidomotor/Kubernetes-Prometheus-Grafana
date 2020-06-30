@@ -29,6 +29,7 @@ sudo helm init
 sudo minikube addons enable ingress
 #Note: Minikube can only expose Services through NodePort. The EXTERNAL-IP is always pending.
 sudo kubectl patch svc ill-bat-prometheus-server  -p '{"spec": {"type": "NodePort"}}'
+#sudo minikube service wordpress --url
 
 sudo minikube start --vm-driver=none
 sudo helm install stable/prometheus
