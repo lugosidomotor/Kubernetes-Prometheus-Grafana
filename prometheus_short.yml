@@ -1,0 +1,38 @@
+global:
+  scrape_interval: 1m
+  scrape_timeout: 10s
+  evaluation_interval: 1m
+
+scrape_configs:
+- job_name: kubernetes-nodes
+  honor_timestamps: true
+  scrape_interval: 1m
+  scrape_timeout: 10s
+  metrics_path: /metrics
+  scheme: https
+  kubernetes_sd_configs:
+  - api_server: 'https://<KUBERNETES URL>'
+    role: node
+    tls_config:
+      ca_file: /certs/ca.crt
+    bearer_token: /certs/token
+  bearer_token_file: /certs/token
+  tls_config:
+    ca_file: /certs/ca.crt
+    insecure_skip_verify: true
+  relabel_configs:
+  - separator: ;
+    regex: __meta_kubernetes_node_label_(.+)
+    replacement: $1
+    action: labelmap
+  - separator: ;
+    regex: (.*)
+    target_label: __address__
+    replacement: kubernetes.default.svc:443
+    action: replace
+  - source_labels: [__meta_kubernetes_node_name]
+    separator: ;
+    regex: (.+)
+    target_label: __metrics_path__
+    replacement: /api/v1/nodes/$1/proxy/metrics
+    action: replace
