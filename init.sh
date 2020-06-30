@@ -40,3 +40,4 @@ sudo helm install stable/prometheus
 
 #How to access Kubernetes API when using minkube?
 #https://stackoverflow.com/questions/40720979/how-to-access-kubernetes-api-when-using-minkube
+#https://itnext.io/kubernetes-monitoring-with-prometheus-exporters-a-service-discovery-and-its-roles-ce63752e5a1
