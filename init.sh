@@ -43,6 +43,7 @@ sudo helm install stable/prometheus
 
 #TEMP:
 #kubectl get pod,svc -n kube-system
+#kubectl config view
 #sudo minikube start –vm-driver=none –extra-config=kubeadm.ignore-preflight-errors=NumCPU –force –cpus 1
 
 #How to access Kubernetes API when using minkube?
