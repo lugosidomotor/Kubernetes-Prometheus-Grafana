@@ -20,8 +20,8 @@ echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/a
 sudo apt-get update
 sudo apt-get install -y kubectl
 
-openssl genrsa -out dev.key 2048
-openssl req -new -key prometheus.key -out dev.csr -subj "/CN=dev/O=group"
+openssl genrsa -out prometheus.key 2048
+openssl req -new -key prometheus.key -out dev.csr -subj "/CN=prometheus/O=group"
 openssl x509 -req -in prometheus.csr -CA /home/cloud_user/.minikube/ca.crt -CAkey /home/cloud_user/.minikube/ca.key -CAcreateserial -out prometheus.crt -days 500
 
 sudo kubectl config set-credentials prometheus --client-certificate=/home/cloud_user/keys/prometheus.crt  --client-key=/home/cloud_user/keys/prometheus.key
