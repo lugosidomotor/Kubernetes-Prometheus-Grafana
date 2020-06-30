@@ -34,5 +34,6 @@ sudo kubectl patch svc ill-bat-prometheus-server  -p '{"spec": {"type": "NodePor
 sudo minikube start --vm-driver=none
 sudo helm install stable/prometheus
 
-
+#TEMP:
+#kubectl get pod,svc -n kube-system
 #sudo minikube start –vm-driver=none –extra-config=kubeadm.ignore-preflight-errors=NumCPU –force –cpus 1
