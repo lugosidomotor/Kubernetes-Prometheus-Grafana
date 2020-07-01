@@ -12,8 +12,16 @@ scrape_configs:
 
     params:
       'match[]':
-        - '{job="kubernetes-apiservers|kubernetes-nodes|kubernetes-nodes-cadvisor|kubernetes-pods|kubernetes-pods-slow|kubernetes-service-endpoints|kubernetes-service-endpoints-slow|prometheus-pushgateway"}'
-
+        - '{job="kubernetes-apiservers"}'
+        - '{job="kubernetes-nodes"}'
+        - '{job="kubernetes-nodes-cadvisor"}'
+        - '{job="kubernetes-pods-slow"}'
+        - '{job="kubernetes-service-endpoints"}'
+        - '{job="kubernetes-service-endpoints-slow"}'
+        - '{job="kubernetes-services"}'
+        - '{job="prometheus"}'
+        - '{job="prometheus-pushgateway"}'
+        
     static_configs:
       - targets:
         - '35.192.199.30:30399'
